@@ -1,4 +1,4 @@
-"" .ideavimrc - Matt Chapman
+"" .ideavimrc - Gustavo Francelino
 
 "" Base Settings
 "" ========================================================
@@ -70,11 +70,20 @@ let g:WhichKeyDesc_action_search = "<leader>as Open command modal"
 
 let g:WhichKeyDesc_file_quickLook = "<leader><leader> Recent files"
 
-let g:WhichKeyDesc_file_nav = "<leader>f File navigation"
-let g:WhichKeyDesc_file_nav_goto_file = "<leader>ff Go to file"
-let g:WhichKeyDesc_file_nav_goto_content = "<leader>fc Search for file content"
-let g:WhichKeyDesc_file_nav_show_recent_files = "<leader>fr Show recent files"
-let g:WhichKeyDesc_file_nav_show_recent_locations = "<leader>fl Show recent locations"
+let g:WhichKeyDesc_project_navigation = "<leader>p Project navigation"
+let g:WhichKeyDesc_project_open_file = "<leader>po Open file"
+let g:WhichKeyDesc_project_replace_in_path = "<leader>pr Replace in path"
+let g:WhichKeyDesc_project_find_in_path = "<leader>pf Find in path"
+let g:WhichKeyDesc_project_goto_action = "<leader>pa Go to action"
+let g:WhichKeyDesc_project_recent_files = "<leader><leader> Recent files"
+let g:WhichKeyDesc_project_recent_locations = "<leader>pl Recent locations"
+let g:WhichKeyDesc_project_new_scratch_file = "<leader>ps New scratch file"
+
+let g:WhichKeyDesc_file_navigation = "<leader>f File navigation"
+let g:WhichKeyDesc_file_find = "<leader>ff Find"
+let g:WhichKeyDesc_file_replace = "<leader>fr Replace"
+let g:WhichKeyDesc_file_optimize_imports = "<leader>fo Optimize imports"
+let g:WhichKeyDesc_file_reformat_code = "<leader>fl Reformat code"
 
 let g:WhichKeyDesc_close_tab = "<leader>q Close active tab"
 
@@ -103,6 +112,16 @@ let g:WhichKeyDesc_git_branches = "<leader>gb Open Git branches list"
 let g:WhichKeyDesc_errors = "<leader>e Error navigation"
 let g:WhichKeyDesc_errors_next = "<leader>en Go to next error in solution"
 let g:WhichKeyDesc_errors_prev = "<leader>ep Go to previous error in solution"
+
+let g:WhichKeyDesc_errors = "<leader>j JetBrains navigation"
+let g:WhichKeyDesc_optimize_imports = "<leader>jo Optimize imports"
+let g:WhichKeyDesc_find = "<leader>jf Find"
+let g:WhichKeyDesc_replace = "<leader>jr Replace"
+let g:WhichKeyDesc_analyze_code = "<leader>ja Analyze code"
+let g:WhichKeyDesc_jump_next_error = "<leader>jj Jump to next error"
+let g:WhichKeyDesc_jump_prev_error = "<leader>jk Jump to previous error"
+let w:WhichKeyDesc_jump_next_warning = "<leader>jz Jump to next warning"
+let g:WhichKeyDesc_jump_prev_warning = "<leader>jZ Jump to previous warning"
 
 
 "" Key mappings
@@ -167,13 +186,21 @@ map <leader>df <action>(ToggleFullScreen)
 map <leader>am <action>(ShowIntentionActions)
 map <leader>as <action>(SearchEverywhere)
 
-" File navigation
-map <leader>ff <action>(GotoFile)
-map <leader>fr <action>(RecentFiles)
-map <leader>fc <action>(FindInPath)
+" Project navigation
+map <leader>po <action>(GotoFile)
+map <leader>pr <action>(ReplaceInPath)
+map <leader>pf <action>(FindInPath)
+map <leader>pa <Action>(GotoAction)
 map<leader><leader> <Action>(RecentFiles)
-map <leader>fl <action>(RecentLocations)
-map <leader>fs <action>(NewScratchFile)
+map <leader>pl <action>(RecentLocations)
+map <leader>ps <action>(NewScratchFile)
+
+" file navigation
+map <leader>ff <Action>(Find)
+map <leader>fr <Action>(Replace)
+map <leader>fo <Action>(OptimizeImports)
+map <leader>fl <Action>(ReformatCode)
+
 
 " Close active tab
 map <leader>q <action>(CloseContent)
@@ -184,6 +211,7 @@ map <leader>rm <Action>(ExtractMethod)
 map <leader>rv <Action>(IntroduceVariable)
 map <leader>rf <Action>(IntroduceField)
 map <leader>rs <Action>(ChangeSignature)
+
 map <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
 
@@ -208,3 +236,5 @@ map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
 
 " Terminal
 map <leader>nt <Action>(ActivateTerminalToolWindow)
+map <leader>nn <Action>(VimActions)
+map <leader>nr <Action>(VimActions)
